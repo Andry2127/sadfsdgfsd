@@ -1,0 +1,29 @@
+
+  
+  {%extends "_base.html" %}
+  {% block content %}
+
+ 
+  
+  <main class="container mt-3">
+    <h1 class="display-5 mt-4">Вирушаємо {{ departures[dep] }}</h1>
+    <p class="mb-4">Знайдено {{ tours | length }} турів</p>
+    <!-- CARDS -->
+    <div class="row mt-5">
+
+      
+      {% for tour in tours %}
+      <div class="col-4">
+        <div class="card mb-4">
+          <img src="{{ tour.picture }}" class="card-img-top embed-responsive-item" alt="">
+          <div class="card-body">
+            <h2 class="h5 card-title">{{ tour.title }}, {{tour.stars}}ещькерь / 5 👍</h2>
+            <p class="card-text">{{ tour.description }}.</p>
+            <a href="{{ url_for('tour', index=tour.id) }}" class="btn btn-sm btn-primary">Діталікі туря</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </main>
+  {% endblock content %} 
